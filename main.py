@@ -16,7 +16,7 @@ def word_finder(xml_file,word_length, top):
     i +=1
   long_words = []
   for word in words:
-    if len(word) >= 6:
+    if len(word) >= word_length:
       long_words.append(word)
   long_words.sort()
   words_count = dict()
@@ -26,7 +26,7 @@ def word_finder(xml_file,word_length, top):
   for value in words_count.values():
     value_count.append(value)
   value_count.sort(reverse=True)
-  top_value = value_count[0:10]
+  top_value = value_count[0:top]
   top_word = dict()
   for key,value in words_count.items():
     if value in top_value:
